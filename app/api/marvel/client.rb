@@ -1,7 +1,6 @@
 module Marvel
   class Client
     include HttpStatusCodes
-    include HttpStatusMessages
 
     API_ENDPOINT           = 'https://gateway.marvel.com/v1/public/'.freeze
     MARVEL_API_KEY         = ENV['MARVEL_API_KEY']
@@ -29,7 +28,6 @@ module Marvel
     end
 
     def request
-      Rails.cache
       response = client.public_send(http_method, endpoint, params.merge(auth))
 
       parsed_response = Oj.load(response.body)
