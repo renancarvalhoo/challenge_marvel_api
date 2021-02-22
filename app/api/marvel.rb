@@ -1,18 +1,17 @@
 module Marvel
-
-  def self.characters
-    Client.new('get', 'characters')
+  def self.characters(args = {})
+    Client.new('get', 'characters', args)
   end
 
-  def self.comics
-    Client.new('get', 'comics')
+  def self.comics(params = {})
+    Client.new('get', 'comics', params)
   end
 
-  def self.character(id)
-    Client.new('get', "characters/#{id}")
+  def self.character(id, params = {})
+    Client.new('get', "characters/#{id}", params)
   end
 
-  def self.character_comics(id)
-    Client.new('get', "characters/#{id}/comics")
+  def self.character_comics(id, params = {})
+    Client.new('get', "characters/#{id}/comics", params)
   end
 end
