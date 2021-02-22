@@ -1,7 +1,6 @@
 module Marvel
   class Client
     include HttpStatusCodes
-    include ApiExceptions
     include HttpStatusMessages
 
     API_ENDPOINT           = 'https://gateway.marvel.com/v1/public/'.freeze
@@ -30,34 +29,14 @@ module Marvel
     end
 
     def request
+      Rails.cache
       response = client.public_send(http_method, endpoint, params.merge(auth))
 
       parsed_response = Oj.load(response.body)
 
-      return parsed_response.dig('data') if response_successful?(parsed_response)
+      return parsed_response['data'] if response_successful?(parsed_response)
 
-      raise error_class(parsed_response), "Code: #{response.status}, response: #{response.body}"
-    end
-
-    def error_class(response)
-      case response['status']
-      when LIMIT_GREATER_THAN_100
-        StandardError
-      when LIMIT_INVALID_OR_BELOW_1
-        StandardError
-      when INVALID_OR_UNRECOGNIZED_PARAMETER
-        StandardError
-      when EMPTY_PARAMETER
-        StandardError
-      when INVALID_OR_UNRECOGNIZED_ORDERING_PARAMETER
-        StandardError
-      when TOO_MANY_VALUES_MULTI_VALUE_LIST_FILTER
-        StandardError
-      when INVALID_FILTER_VALUE
-        StandardError
-      else
-        StandardError
-      end
+      raise ApiError, "Code: #{response.status}, response: #{response.body}"
     end
 
     def auth

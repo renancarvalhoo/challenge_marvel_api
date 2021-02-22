@@ -1,3 +1,20 @@
-<h1>Comics#index</h1>
-<p>Find me in app/views/comics/index.html.erb</p>
-<%= render partial: 'comic', collection: @comics %>
+<main>
+  <p class="error-message">Failed to load characters. Please, try again later.</p>
+  <div class="container">
+    <div class="featured-character">
+      <div class="featured-character-img">
+        <div class="featured-character-details">
+          <h1 class="character-name"></h1>
+          <ul class="character-links">
+          </ul>
+        </div>
+      </div>
+      <div class="character-details">
+
+        <ul class="character-comics">
+          <%= render partial: 'comic', collection: @comics %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

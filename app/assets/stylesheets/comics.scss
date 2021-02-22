@@ -1,3 +1,101 @@
 // Place all the styles related to the Comics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+:root {
+  --primary-dark-color: #000;
+  --primary-color: #141414;
+  --accent-color: #E50914;
+  --text-color: white;
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+main {
+  width: 90%;
+  margin: 6rem auto;
+  padding-top: 3%;
+}
+
+h1 {
+  font-weight: bolder;
+  color: var(--accent-color);
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin: 1ch 0;
+  color: var(--accent-color);
+}
+
+footer {
+  padding: 2rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  text-align: center;
+  opacity: 0.8;
+}
+
+// .container {
+//   display: none;
+// }
+
+.error-message {
+  text-align: center;
+  display: none;
+}
+
+.comic-border {
+  border: 6px solid rgb(255, 0, 0);
+  // margin
+  // background-color: #E50914;
+  // margin: 6px solid rgb(255, 0, 0);
+  // background-image: image-url('heart_on.png');
+  // background-attachment: fixed;
+  // background-repeat:no-repeat;
+  // background-position:center;
+}
+
+.favorite-position {
+  position:absolute;
+  top:5%;
+  right:15%;
+}
+.comic-image-container{
+  position:relative;
+  top:0px;
+  left:0px;
+}
+
+.comic-no-border {
+  border: 6px solid rgba(255,255,255,.08);
+  // margin
+  // background-color: #E50914;
+  // margin: 6px solid rgb(255, 0, 0);
+}
+
+.teste{
+  position: relative;
+}
+
+@media (min-width: 768px){
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  main {
+    width: 80%;
+    margin: 6rem auto;
+  }
+}
