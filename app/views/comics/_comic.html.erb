@@ -7,10 +7,10 @@
     <%end%>
     <div class='favorite-position'>
       <% if favorite?(comic.id, @favorites) %>
-        <%# <%= image_tag('heart_on', alt: "Marvel logo", class: "marvel-logo") %>
+        <%= image_tag('heart_on', alt: "Marvel logo", class: "heart-on") %>
         <%= button_to 'Remove vote', upvotes_path(comic_id: comic.id), method: :delete, class: "heart-on" %>
       <%else%>
-        <%# <%= image_tag('heart_off', alt: "Marvel logo", class: "marvel-logo") %>
+        <%= image_tag('heart_off', alt: "Marvel logo", class: "heart-off") %>
         <%= button_to 'CREATE vote', upvotes_path(comic_id: comic.id), method: :post, class: "heart-off" %>
       <%end%>
     </div>

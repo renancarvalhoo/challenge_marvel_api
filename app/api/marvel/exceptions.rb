@@ -1,5 +1,7 @@
 module Marvel
-  class NotConfigured < StandardError; end
+  module Exceptions
+    class ApiError < StandardError; end
 
-  class ApiError < StandardError; end
+    class AuthError < StandardError; end
+  end
 end

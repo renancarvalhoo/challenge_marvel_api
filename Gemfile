@@ -12,6 +12,8 @@ gem 'faraday'
 gem 'oj'
 gem 'fast_jsonapi'
 
+gem 'webpacker', '~> 5.0'
+
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
@@ -25,4 +27,10 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'vcr'
+  gem 'webmock'
 end
