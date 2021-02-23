@@ -3,6 +3,7 @@ class ComicsController < ApplicationController
 
   def index
     @character_id = comics_params[:character_id] || find_character(comics_params[:character_name])
+
     comics_response = Marvel.comics(
       marvel_comic_parameters(
         comics_params[:page],
@@ -13,7 +14,6 @@ class ComicsController < ApplicationController
 
     @page = comics_params[:page].to_i || 0
     @total_pages = comics_response['total'] / LIMIT
-    ap @total_pages
     @favorites = Upvote.where(session_id: session.id.to_s).pluck(:comic_id)
     @comics = ComicsSerializer.new(comics_response['results']).serialize
   end
