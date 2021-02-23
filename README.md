@@ -41,9 +41,11 @@
 
 ## Improvements
 
-  - I would further separate the wrapper into different classes such as Response, Request, Parser and also create a paginate class to remove some of the code from the Controller
+  - I would further separate the wrapper into different classes such as Response, Request, Parser and also create a paginate class or even a simple ObjectView/PORO to remove some of the code from the Controller
+  - Create a router with metaprogramming in the api wrapper to manage versions
   - Error handling in the Server Client, currently if we search for a hero name and it doesn’t exist, the controller will return all the heroes. It could return an error stating that there is no such hero, or even do an input search and handle everything by javascript.
   - Save the user to the database and manage the favorites by each user.
+  - Adjust as the assets in order to load the images in javascript, with this I can remove the forms created in the frontend and make everything javascript
 
 ## Interesting gems used
 
