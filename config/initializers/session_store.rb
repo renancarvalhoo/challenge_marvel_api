@@ -1,1 +1,1 @@
-Rails.application.config.session_store :cookie_store, expire_after: 10.minutes
+Rails.application.config.session_store :cookie_store, expire_after: 15.minutes
