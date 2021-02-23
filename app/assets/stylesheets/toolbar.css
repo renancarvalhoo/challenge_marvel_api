@@ -28,7 +28,7 @@
   line-height: 2rem;
   padding: 0 1rem;
   border: 2px solid var(--text-color);
-  color: var(--text-color);
+  color: black;
   /* display: none; */
 }
 

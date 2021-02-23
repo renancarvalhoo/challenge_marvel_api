@@ -1,16 +1,17 @@
 <li>
   <div class="comic-image-container">
-    <% favorite = [true, false].sample %>
-    <% if favorite %>
-      <img src="http://i.annihil.us/u/prod/marvel/i/mg/2/60/4bb4e5edf3b8c.jpg" class="character-comic-img comic-border">
+    <% if favorite?(comic.id, @favorites) %>
+      <%= image_tag(comic.thumb_path, class: 'character-comic-img comic-border') %>
     <%else%>
-      <img src="http://i.annihil.us/u/prod/marvel/i/mg/2/60/4bb4e5edf3b8c.jpg" class="character-comic-img comic-no-border">
+      <%= image_tag(comic.thumb_path, class: 'character-comic-img comic-no-border') %>
     <%end%>
     <div class='favorite-position'>
-      <% if favorite %>
-        <%= image_tag('heart_on', alt: "Marvel logo", class: "marvel-logo") %>
+      <% if favorite?(comic.id, @favorites) %>
+        <%# <%= image_tag('heart_on', alt: "Marvel logo", class: "marvel-logo") %>
+        <%= button_to 'Remove vote', upvotes_path(comic_id: comic.id), method: :delete, class: "heart-on" %>
       <%else%>
-        <%= image_tag('heart_off', alt: "Marvel logo", class: "marvel-logo") %>
+        <%# <%= image_tag('heart_off', alt: "Marvel logo", class: "marvel-logo") %>
+        <%= button_to 'CREATE vote', upvotes_path(comic_id: comic.id), method: :post, class: "heart-off" %>
       <%end%>
     </div>
   </div>

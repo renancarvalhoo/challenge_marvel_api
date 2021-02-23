@@ -63,6 +63,15 @@
   height: 250px;
 }
 
+.heart-on{
+  background-image: url('heart_on.png');
+  background-repeat: no-repeat;
+}
+
+.heart-on input{
+  display: none;
+}
+
 .character-comics>li{
   margin: auto 1ch auto 0;
 
@@ -71,6 +80,7 @@
 .character-comics{
   height: 100px;
   display: flex;
+  text-align: center;
 }
 
 

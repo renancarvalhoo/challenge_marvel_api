@@ -1,0 +1,21 @@
+
+.paginate-buttons {
+  background-color: #ffffff; /* Green */
+  border: none;
+  color: rgb(255, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  width: 15%;
+  cursor: pointer;
+}
+
+.paginate-left-button {
+  float: left;
+}
+
+.paginate-right-button {
+  float: right;
+}

@@ -1,5 +1,6 @@
 module Marvel
   def self.characters(args = {})
+    args['format'] = 'comic'
     Client.new('get', 'characters', args)
   end
 

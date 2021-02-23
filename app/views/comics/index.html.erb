@@ -14,6 +14,17 @@
         <ul class="character-comics">
           <%= render partial: 'comic', collection: @comics %>
         </ul>
+        <div class="row paginate-container">
+          <div>
+            <% if @page > 0 %>
+              <%= button_to 'PREVIOUS PAGE', root_path(page: @page-1), method: :get, class: "paginate-left-button paginate-buttons"%>
+            <%end%>
+            <% next_page = @page + 1 %>
+            <% if @page <= @total_pages.to_i %>
+              <%= button_to 'NEXT PAGE', root_path, method: :get, class: "paginate-right-button paginate-buttons", params: {page: @page+1} %>
+            <%end%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
