@@ -16,11 +16,11 @@
         <div class="row paginate-container">
           <div>
             <% if @page > 0 %>
-              <%= button_to 'PREVIOUS PAGE', root_path(page: @page-1), method: :get, class: "paginate-left-button paginate-buttons"%>
+              <%= button_to 'PREVIOUS PAGE', root_path, method: :get, class: "paginate-left-button paginate-buttons", params: {page: @page-1, character_id: @character_id}%>
             <%end%>
             <% next_page = @page + 1 %>
-            <% if @page <= @total_pages.to_i %>
-              <%= button_to 'NEXT PAGE', root_path, method: :get, class: "paginate-right-button paginate-buttons", params: {page: @page+1} %>
+            <% if @page < @total_pages.to_i %>
+              <%= button_to 'NEXT PAGE', root_path, method: :get, class: "paginate-right-button paginate-buttons", params: {page: @page+1, character_id: @character_id} %>
             <%end%>
           </div>
         </div>

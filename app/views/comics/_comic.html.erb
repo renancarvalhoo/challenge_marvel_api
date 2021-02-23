@@ -5,13 +5,13 @@
     <%else%>
       <%= image_tag(comic.thumb_path, class: 'character-comic-img comic-no-border') %>
     <%end%>
-    <div class='favorite-position'>
+    <div>
       <% if favorite?(comic.id, @favorites) %>
-        <%= image_tag('heart_on', alt: "Marvel logo", class: "heart-on") %>
-        <%= button_to 'Remove vote', upvotes_path(comic_id: comic.id), method: :delete, class: "heart-on" %>
+        <%= image_tag('heart_on', alt: "Marvel logo", class: "heart-on favorite-heart-on-position") %>
+        <%= button_to '', upvote_path(comic.id), method: :delete, class: "heart-on favorite-input-position", params: { page: @page, character_id: @character_id } %>
       <%else%>
-        <%= image_tag('heart_off', alt: "Marvel logo", class: "heart-off") %>
-        <%= button_to 'CREATE vote', upvotes_path(comic_id: comic.id), method: :post, class: "heart-off" %>
+        <%= image_tag('heart_off', id: "heart-off-#{comic.id}", alt: "Marvel logo", class: "heart-off favorite-heart-off-position") %>
+        <%= button_to '', upvotes_path(comic_id: comic.id), onmouseout: "document.getElementById('heart-off-#{comic.id}').src='#{asset_path('heart_off.png')}'", onmouseover: "document.getElementById('heart-off-#{comic.id}').src='#{asset_path('heart_hover.png')}'", method: :post, class: "heart-off favorite-input-position", params: { character_id: @character_id, page: @page } %>
       <%end%>
     </div>
   </div>

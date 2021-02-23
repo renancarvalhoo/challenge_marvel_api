@@ -20,8 +20,8 @@
         </div>
         <div class="col-md-12 search">
           <%= form_with url: '/', method: :get do |form| %>
-            <%= form.text_field :search, placeholder: 'Search for character', class: 'search-input'  %>
-            <%= form.submit "character_name", class: 'material-icons icon-search'  %>
+            <%= form.text_field :character_name, placeholder: 'Search for character', class: 'search-input'  %>
+            <%= form.submit "search", class: 'material-icons icon-search', name: nil %>
           <% end %>
 
         </div>
