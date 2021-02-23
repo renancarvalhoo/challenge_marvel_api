@@ -2,19 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.7.1'
 
-gem 'rails', '~> 6.1.3'
+gem 'bootsnap', '>= 1.4.4', require: false
+gem 'faraday'
+gem 'fast_jsonapi'
+gem 'oj'
 gem 'pg', '~> 1.1'
+gem 'rails', '~> 6.1.3'
+gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
 gem 'turbolinks', '~> 5'
-gem 'redis', '~> 4.0'
-
-gem 'faraday'
-gem 'oj'
-gem 'fast_jsonapi'
-
 gem 'webpacker', '~> 5.0'
-
-gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

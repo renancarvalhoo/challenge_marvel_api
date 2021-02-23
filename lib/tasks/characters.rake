@@ -22,12 +22,11 @@ namespace :marvel do
     end
     characters = [parsed_characters]
 
-
     ActiveRecord::Base.transaction do
       (1..pages).each do |page|
         page = page * LIMIT
         characters << Marvel.characters(limit: LIMIT, offset: page).fetch['results'].map do |marvel_character|
-          { name: marvel_character['name'], marvel_id: marvel_character['id'], created_at: Time.zone.now, updated_at: Time.zone.now }
+          { name: marvel_character['name'], marvel_id: marvel_character['id']}
         end
 
         sleep(3)

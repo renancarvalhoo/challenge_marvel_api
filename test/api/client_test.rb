@@ -5,7 +5,7 @@ class ClientTest < Minitest::Test
     @channel = Marvel::Client
   end
 
-  def test_client_path
+  def test_client_api_response
     Time.stub :now, Time.zone.parse("2021-02-23 13:11:56 UTC") do
       VCR.use_cassette(:characters) do
         response = @channel.new('get', 'characters', {}).fetch
@@ -15,7 +15,7 @@ class ClientTest < Minitest::Test
     end
   end
 
-  def test_client_api_error
+  def test_client_api_response_error
     Time.stub :now, Time.zone.parse('2021-02-23 13:11:56 UTC') do
       VCR.use_cassette(:characters_error) do
         assert_raises(Marvel::Exceptions::ApiError) { @channel.new('get', 'characters', { wrong: 'parameter' }).fetch }
