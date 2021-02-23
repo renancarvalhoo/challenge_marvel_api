@@ -1,0 +1,33 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.marvel.com/v1/public/characters?apikey={MARVEL_API_KEY}&hash=95a71f71357a39267f7ad70e932364aa&ts=2021-02-23%2013:11:56%20UTC&wrong=parameter
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 23 Feb 2021 16:32:47 GMT
+      Connection:
+      - keep-alive
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"code":409,"status":"We don''t recognize the parameter wrong"}'
+  recorded_at: Tue, 23 Feb 2021 13:11:56 GMT
+recorded_with: VCR 6.0.0

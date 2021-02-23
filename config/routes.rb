@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-
+  get 'characters/index'
   root 'comics#index'
 
-  resource :upvotes, only: [:create, :destroy]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :upvotes, only: [:create, :destroy]
+
+  resources :comics, only: :index
 end
