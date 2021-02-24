@@ -69,6 +69,8 @@ In MacOs is possible to do `brew install redis`
 - Clone the repo: git clone {{this_repo_url}}
 - Enter the marvel_api folder: `cd marvel_api`
 - Install the dependencies: `bundle install` (Ruby 2.7.1 is required)
+- rake db:create; db:migrate
+- rake marvel:characters
 - Run tests `RAILS_ENV=test rake test`
 - Run application `rails s` (*default port 3000*)
 
