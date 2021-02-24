@@ -71,6 +71,7 @@ In MacOs is possible to do `brew install redis`
 - Install the dependencies: `bundle install` (Ruby 2.7.1 is required)
 - rake db:create; db:migrate
 - rake marvel:characters
+- you must have the yarn installed and then `yarn install`
 - Run tests `RAILS_ENV=test rake test`
 - Run application `rails s` (*default port 3000*)
 
